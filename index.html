@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clock is ticking</title>
+</head>
+<body>
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery.countdown/dist/jquery.countdown.min.js"></script>
+	<style type="text/css">
+		html, body {
+			margin: 0;
+			height: 100%;
+		}
+
+		body {
+			background-color: #333333; 
+
+			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+			text-align: center;
+			font-size: 5em;
+			color: #f7f7f7;
+		}
+
+		#no-more-time {
+			position: relative;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	</style>
+
+		<span id="no-more-time"></span>
+
+	<script type="text/javascript">
+		$("#no-more-time")
+		.countdown("2015/07/02").on('update.countdown', function(event) {
+		   var $this = $(this).html(event.strftime(''
+		     + '<span>%-w</span> week%!w '
+		     + '<span>%-d</span> day%!d '
+		     + '<span>%H</span> hr '
+		     + '<span>%M</span> min '
+		     + '<span>%S</span> sec'));
+		});
+	</script>
+
+</body>
+</html>
